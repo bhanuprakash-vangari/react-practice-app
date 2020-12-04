@@ -5,7 +5,7 @@ import Person from "./Person/Person";
 class App extends Component {
   state = {
     persons: [{ name: "Bhanu", age: 23, hobbies: "Write Something" }],
-    showPerson: false
+    showPerson: false,
   };
   switchNameHandler = () => {
     this.setState({
@@ -21,19 +21,15 @@ class App extends Component {
   };
   togglePersonHandler = () => {
     const showStatus = this.state.showPerson;
-    this.setState({ showPerson: !showStatus});
+    this.setState({ showPerson: !showStatus });
   };
   render() {
     return (
       <div className="App">
         <h1>Hi, I'm React App</h1>
         <p>This is really working!</p>
-        <button 
-          onClick={this.togglePersonHandler}
-        >  
-          Click Me
-        </button>
-        { this.state.showPerson ?
+        <button onClick={this.togglePersonHandler}>Click Me</button>
+        {this.state.showPerson ? (
           <div>
             <Person
               name={this.state.persons[0].name}
@@ -42,8 +38,8 @@ class App extends Component {
               click={this.switchNameHandler}
               changed={this.nameChangeHandler}
             />
-          </div>: null
-        }
+          </div>
+        ) : null}
       </div>
     );
   }
