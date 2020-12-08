@@ -1,9 +1,9 @@
 import React from "react";
 
 const validation = (props) => {
-    let validationMessage = 'Text too short!'
-    if(props.inputLength >= 8){
-        validationMessage = 'Text long enough!'
+    let validationMessage = "Text long enough!";
+    if(props.inputLength < 8){
+        validationMessage = 'Text too short!'
     }
     return (
       <div>
