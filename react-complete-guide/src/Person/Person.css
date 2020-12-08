@@ -1,9 +1,9 @@
 .Person {
   width: 60%;
-  margin: auto;
+  margin: auto ;
   border: 1px solid #eeeeee;
   box-shadow: 0 2px 3px aquamarine;
-  padding: 16px;
+  padding: 18px;
   text-align: center;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 20px;
