@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import "./App.css";
-import Person from "./Person/Person";
+import React, { Component } from "react"
+import "./App.css"
+import Person from "./Person/Person"
 
 class App extends Component {
   state = {
@@ -10,33 +10,33 @@ class App extends Component {
   switchNameHandler = () => {
     this.setState({
       persons: [{ name: "Bhanu Prakash", age: 23, hobbies: "Write Something" }],
-    });
-  };
+    })
+  }
   nameChangeHandler = (event) => {
     this.setState({
       persons: [
         { name: "Bhanu Prakash", age: 23, hobbies: event.target.value },
       ],
-    });
-  };
+    })
+  }
   togglePersonHandler = () => {
-    const showStatus = this.state.showPerson;
-    this.setState({ showPerson: !showStatus });
-  };
+    const showStatus = this.state.showPerson
+    this.setState({ showPerson: !showStatus })
+  }
   render() {
     let persons = null;
     if (this.state.showPerson) {
       persons = (
         <div>
-          <Person
-            name={this.state.persons[0].name}
-            age={this.state.persons[0].age}
-            hobbies={this.state.persons[0].hobbies}
-            click={this.switchNameHandler}
-            changed={this.nameChangeHandler}
-          />
+          {this.state.persons.map(person => {
+            return <Person 
+                    name={person.name} 
+                    age={person.age}
+                    hobbies={person.hobbies}
+                    changed={this.nameChangeHandler} />
+          })}
         </div>
-      );
+      )
     }
     return (
       <div className="App">
@@ -45,8 +45,8 @@ class App extends Component {
         <button onClick={this.togglePersonHandler}>Click Me</button>
         {persons}
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App

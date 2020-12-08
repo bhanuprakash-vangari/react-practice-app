@@ -1,5 +1,5 @@
-import React from "react";
-import "./Person.css";
+import React from "react"
+import "./Person.css"
 
 const person = (props) => {
   return (
@@ -10,6 +10,6 @@ const person = (props) => {
       </p>
       <input className="input-text" type="text" onChange={props.changed} value={props.hobbies} />
     </div>
-  );
-};
-export default person;
+  )
+}
+export default person
