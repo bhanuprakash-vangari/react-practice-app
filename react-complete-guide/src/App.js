@@ -24,22 +24,26 @@ class App extends Component {
     this.setState({ showPerson: !showStatus });
   };
   render() {
+    let persons = null;
+    if (this.state.showPerson) {
+      persons = (
+        <div>
+          <Person
+            name={this.state.persons[0].name}
+            age={this.state.persons[0].age}
+            hobbies={this.state.persons[0].hobbies}
+            click={this.switchNameHandler}
+            changed={this.nameChangeHandler}
+          />
+        </div>
+      );
+    }
     return (
       <div className="App">
         <h1>Hi, I'm React App</h1>
         <p>This is really working!</p>
         <button onClick={this.togglePersonHandler}>Click Me</button>
-        {this.state.showPerson ? (
-          <div>
-            <Person
-              name={this.state.persons[0].name}
-              age={this.state.persons[0].age}
-              hobbies={this.state.persons[0].hobbies}
-              click={this.switchNameHandler}
-              changed={this.nameChangeHandler}
-            />
-          </div>
-        ) : null}
+        {persons}
       </div>
     );
   }
