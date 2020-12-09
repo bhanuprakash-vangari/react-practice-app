@@ -1,12 +1,4 @@
 .App {
   text-align: center;
-  color: blue;
-}
-button {
-  margin: auto;
-  box-shadow: 2px 5px aquamarine;
-  padding: 5px 10px;
-  background-color: mediumblue;
-  border: 2px mediumblue;
-  color: aliceblue;
+  color: green;
 }

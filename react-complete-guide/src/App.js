@@ -1,6 +1,7 @@
-import React, { Component } from "react"
-import "./App.css"
-import Person from "./Person/Person"
+import React, { Component } from "react";
+import "./App.css";
+import Radium from 'radium';
+import Person from "./Person/Person";
 
 class App extends Component {
   state = {
@@ -11,51 +12,73 @@ class App extends Component {
     ],
     showPerson: false,
   };
-  nameChangeHandler = (event,id) => {
-    const personIndex = this.state.persons.findIndex(p => {
-      return p.id === id
-    })
+  nameChangeHandler = (event, id) => {
+    const personIndex = this.state.persons.findIndex((p) => {
+      return p.id === id;
+    });
     const person = {
-      ...this.state.persons[personIndex]
-    }
-    person.hobbies = event.target.value
+      ...this.state.persons[personIndex],
+    };
+    person.hobbies = event.target.value;
 
-    const persons = [...this.state.persons]
-    persons[personIndex] = person
-    this.setState({persons: persons});
+    const persons = [...this.state.persons];
+    persons[personIndex] = person;
+    this.setState({ persons: persons });
   };
   togglePersonHandler = () => {
     const showStatus = this.state.showPerson;
     this.setState({ showPerson: !showStatus });
   };
   render() {
+    const buttonStyle = {
+      margin: "auto",
+      boxShadow: "2px 5px #A0FF33",
+      padding: "5px 10px",
+      backgroundColor: "green",
+      border: "2px mediumblue",
+      color: "white",
+      ":hover": {
+        backgroundColor: "lightgreen",
+        color: "black",
+        boxShadow: "2px 5px #B6FFAA",
+      },
+    };
     let persons = null;
     if (this.state.showPerson) {
       persons = (
         <div>
-          {this.state.persons.map((person,index) => {
+          {this.state.persons.map((person, index) => {
             return (
               <Person
                 name={person.name}
                 age={person.age}
                 hobbies={person.hobbies}
-                changed={(event) => this.nameChangeHandler(event,person.id)}
+                changed={(event) => this.nameChangeHandler(event, person.id)}
                 key={person.id}
               />
             );
           })}
         </div>
       );
+      buttonStyle.backgroundColor='blue'
+      buttonStyle.boxShadow ='2px 5px #AAFFE0'
+      buttonStyle[":hover"] = {
+        backgroundColor: "aquamarine",
+        color: "black",
+        boxShadow: "2px 5px #AAFFE0",
+      };
     }
     return (
       <div className="App">
         <h1>Hi, I'm React App</h1>
         <p>This is really working!</p>
-        <button onClick={this.togglePersonHandler}>Click Me</button>
+        <button style={buttonStyle} onClick={this.togglePersonHandler}>
+          Click Me
+        </button>
         {persons}
       </div>
     );
   }
 }
 
-export default App
+export default Radium(App);
