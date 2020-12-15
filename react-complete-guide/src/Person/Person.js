@@ -16,8 +16,11 @@ const StyledDiv = styled.div`
 `;
 
 const StyledInput = styled.input`
-  padding: 8px;
-  outline-color: aquamarine;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  box-shadow: 2px 4px 18px skyblue;
 `;
 
 const person = (props) => {

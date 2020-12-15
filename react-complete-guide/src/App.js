@@ -6,17 +6,21 @@ import styled from 'styled-components'
 
 const StyledButton = styled.button`
   margin: auto;
-  box-shadow: 2px 5px #a0ff33;
-  padding: 7.5px 15px;
-  background-color: green;
-  border: 2px mediumblue;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: Poppins;
+  box-shadow: 2px 5px 8px ${(props) => (props.alt ? "#6ed6ff" : "#a0ff33")};
+  padding: 8px 25px;
+  background-color: ${(props) => (props.alt ? "mediumblue" : "green")};
+  border-radius :8px;
   color: white;
   border: none;
   outline: none;
+
   &:hover {
-    background-color: lightgreen;
+    background-color: ${(props) => (props.alt ? "skyblue" : "#a0ff33")};
     color: black;
-    boxshadow: 2px 5px #b6ffaa;
+    boxshadow: 2px 5px 8px ${(props) => (props.alt ? "#308dff" : "#b6ffaa")};
   }
 `;
 class App extends Component {
@@ -69,7 +73,7 @@ class App extends Component {
       <div className="App">
         <h1>Hi, I'm React App</h1>
         <p>This is really working!</p>
-        <StyledButton onClick={this.togglePersonHandler}>
+        <StyledButton alt={this.state.showPerson} onClick={this.togglePersonHandler}>
           Click Me
         </StyledButton>
         {persons}
