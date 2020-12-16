@@ -1,16 +1,29 @@
-/* .Person {
+.Person {
   width: 60%;
-  margin: auto ;
+  margin: 18px auto; 
+  /* items-align:center; */
+  text-align:center;
   border: 1px solid #eeeeee;
-  box-shadow: 0 2px 3px aquamarine;
+  box-shadow: 2px 4px  18px aquamarine;
   padding: 18px;
   text-align: center;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 20px;
   color: aliceblue;
   background-color: blue;
-} */
-/* .input-text {
-  padding: 8px;
-  outline-color: aquamarine;
-} */
+  border-radius: 8px
+} 
+.InputText {
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  box-shadow: 2px 4px 18px skyblue;
+} 
+
+@media(min-width:500px) {
+  .Person {
+    width: 450px;
+  }
+  
+}

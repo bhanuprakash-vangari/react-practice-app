@@ -1,4 +1,38 @@
+* {
+    text-align: center;
+}
 .App {
   text-align: center;
   color: green;
+}
+.Button{
+  margin: auto;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: Poppins;
+  box-shadow: 2px 5px 8px #a0ff33;
+  padding: 8px 25px;
+  background-color: green;
+  border-radius :8px;
+  color: white;
+  border: none;
+  outline: none;
+}
+
+
+.Button:hover {
+    background-color: #a0ff33;
+    color: black;
+    box-shadow: 2px 5px 8px #b6ffaa;
+}
+
+.Button.Blue {
+    background-color: blue;
+  box-shadow: 2px 5px 8px #7ce0ff;
+
+}
+
+.Button.Blue:hover {
+    background-color: skyblue;
+  box-shadow: 2px 5px 8px #7ce0ff;
 }
