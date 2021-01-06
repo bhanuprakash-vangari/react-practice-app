@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import classes from "./App.css";
-import Person from "./Person/Person";
+import Persons from '../components/Persons/Persons';
 
 class App extends Component {
   state = {
@@ -34,27 +34,22 @@ class App extends Component {
     if (this.state.showPerson) {
       persons = (
         <div>
-          {this.state.persons.map((person, index) => {
-            return (
-              <Person
-                name={person.name}
-                age={person.age}
-                hobbies={person.hobbies}
-                changed={(event) => this.nameChangeHandler(event, person.id)}
-                key={person.id}
-              />
-            );
-          })}
+          <Persons 
+            persons= {this.state.persons}
+            changed = {this.state.nameChangeHandler}
+          />
         </div>
       );
       btnClass.push(classes.Blue);
-     >
     }
     return (
       <div className={classes.App}>
         <h1>Hi, I'm React App</h1>
         <p>This is really working!</p>
-        <button className={btnClass.join(' ')} onClick={this.togglePersonHandler}>
+        <button
+          className={btnClass.join(" ")}
+          onClick={this.togglePersonHandler}
+        >
           Click Me
         </button>
         {persons}
